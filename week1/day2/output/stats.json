@@ -1,0 +1,22 @@
+{
+  "file": "corpus.txt",
+  "concurrency": 4,
+  "totalWords": 600000,
+  "uniqueWords": 3,
+  "longestWord": "lorem",
+  "shortestWord": "lorem",
+  "topWords": [
+    {
+      "word": "lorem",
+      "count": 200000
+    },
+    {
+      "word": "ipsum",
+      "count": 200000
+    },
+    {
+      "word": "dolor",
+      "count": 200000
+    }
+  ]
+}

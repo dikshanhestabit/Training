@@ -1,0 +1,22 @@
+[
+  {
+    "concurrency": 1,
+    "executionTimeMs": "150.97",
+    "memoryUsedMB": "78.05"
+  },
+  {
+    "concurrency": 4,
+    "executionTimeMs": "151.42",
+    "memoryUsedMB": "78.07"
+  },
+  {
+    "concurrency": 8,
+    "executionTimeMs": "149.85",
+    "memoryUsedMB": "78.05"
+  },
+  {
+    "concurrency": 4,
+    "executionTimeMs": "148.47",
+    "memoryUsedMB": "82.66"
+  }
+]

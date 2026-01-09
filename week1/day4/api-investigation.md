@@ -123,3 +123,35 @@ Screenshots:
 ![Fake_Authorization](screenshots/Fake_Authorization_header.png)
 
 ![Etag](screenshots/Etag.png)
+
+## 5. Custom Node.js HTTP Server
+
+A local Node.js HTTP server was created to demonstrate header inspection, delayed responses, and caching behavior.
+
+### Implemented Endpoints
+
+- `/echo`  
+  Returns all request headers as JSON
+
+- `/slow?ms=3000`  
+  Delays the response by the specified milliseconds
+
+- `/cache`  
+  Returns cache-related headers including `Cache-Control` and `ETag`
+
+### Validation via cURL
+```bash
+curl http://localhost:3000/echo
+curl "http://localhost:3000/slow?ms=3000"
+curl -i http://localhost:3000/cache
+```
+
+#### Observations
+- `/echo` reflects request headers accurately
+- `/slow` delays the response as expected
+- `/cache` returns valid cache headers:
+  - Cache-Control: public, max-age=60
+  - ETag: node-cache-v1
+
+Screenshot: Node server endpoints tested via terminal  
+![Node Server Endpoints](http.png)

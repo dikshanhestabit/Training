@@ -120,6 +120,6 @@ Screenshots:
 
 ![Remove_User](screenshots/Remove_User-Agent.png)
 
-![Fake_Authorization](Fake_Authorization_header.png)
+![Fake_Authorization](screenshots/Fake_Authorization_header.png)
 
-![Etag](Etag.png)
+![Etag](screenshots/Etag.png)

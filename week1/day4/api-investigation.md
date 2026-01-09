@@ -8,7 +8,6 @@ This document analyzes HTTP request–response behavior using the DummyJSON API,
 - Caching using ETag  
 The investigation was performed using **CURL** and **Postman**.
 
----
 
 ## 1. Pagination Analysis
 
@@ -119,8 +118,8 @@ Screenshots:
 
 ![Pagination_request](screenshots/Pagination_request.png)
 
-![Remove_User](screenshots/Remove_User.png)
+![Remove_User](screenshots/Remove_User-Agent.png)
 
-![Fake_Authorization](Fake_Authorization.png)
+![Fake_Authorization](Fake_Authorization_header.png)
 
 ![Etag](Etag.png)

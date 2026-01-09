@@ -29,7 +29,6 @@ GET https://dummyjson.com/products?limit=5&skip=10
 - This proves the API supports offset-based pagination
 - Pagination is handled entirely via query parameters
 
-  Screenshot: Pagination request & response
 ![Pagination Response](screenshots/Default.png)
 
 
@@ -62,7 +61,6 @@ curl -v -H "User-Agent:" https://dummyjson.com/products?limit=5&skip=10
 - Server does not enforce User-Agent validation
 
 
-Screenshot: Request without User-Agent
 ![No User Agent](screenshots/user_agent.png)
 
 ## 2.2 Fake Authorization Header
@@ -75,7 +73,6 @@ curl -v -H "Authorization: Bearer fake_token_123" https://dummyjson.com/products
 - No authentication error occurred
 - API ignored invalid Authorization header
 
-Screenshot: Fake Authorization Header
 ![Fake Auth](screenshots/fake_auth.png)
 
 ## 3. Caching & ETag Analysis
@@ -101,7 +98,6 @@ https://dummyjson.com/products?limit=5&skip=10
 - Same ETag value returned in headers
 
 
-Screenshot: 304 Not Modified Response
 ![ETag 304](screenshots/none_match.png)
 
 ## 4. Postman Validation
@@ -114,7 +110,6 @@ The same requests were reproduced using Postman Desktop Agent:
 
 Results matched cURL behavior, confirming consistency across tools.
 
-Screenshots:
 
 ![Pagination_request](screenshots/Pagination_request.png)
 
@@ -153,5 +148,4 @@ curl -i http://localhost:3000/cache
   - Cache-Control: public, max-age=60
   - ETag: node-cache-v1
 
-Screenshot: Node server endpoints tested via terminal  
 ![Node Server Endpoints](screenshots/http.png)

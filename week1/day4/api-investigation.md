@@ -51,7 +51,7 @@ Key Response Headers Observed
 `X-RateLimit-*`
 `Security headers (X-Frame-Options, X-Content-Type-Options)`
 
-### 2.1 Removing User-Agent Header
+## 2.1 Removing User-Agent Header
 
 curl -v -H "User-Agent:" https://dummyjson.com/products?limit=5&skip=10
 

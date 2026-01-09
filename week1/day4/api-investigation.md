@@ -154,4 +154,4 @@ curl -i http://localhost:3000/cache
   - ETag: node-cache-v1
 
 Screenshot: Node server endpoints tested via terminal  
-![Node Server Endpoints](http.png)
+![Node Server Endpoints](screenshots/http.png)

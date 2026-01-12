@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Indian Spice Box</title>
+</head>
+
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <h1>The Indian Spice Box</h1>
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="blog.html">Home</a></li>
+                <li><a href="#recipes">Recipes</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- About Section (Now First) -->
+        <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">About The Indian Spice Box</h2>
+            <figure>
+                <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                    alt="Various indian spices in bowls" width="300">
+                <figcaption>The heart of Indian cuisine: Fresh Spices.</figcaption>
+            </figure>
+            <p>Welcome to your digital cookbook for authentic Indian cuisine. Our mission is to demystify complex spices
+                and make traditional cooking accessible to everyone, from curious beginners to seasoned home chefs.</p>
+        </section>
+
+        <!-- Recipes Feed Section -->
+        <section id="recipes" aria-labelledby="recipes-title">
+            <h2 id="recipes-title">Featured Recipes</h2>
+
+            <!-- RECIPE 1: Masala Chai -->
+            <article id="beverages">
+                <header>
+                    <h3>Authentic Masala Chai</h3>
+                </header>
+                <p>There is nothing quite like a steaming cup of Masala Chai to start your morning. The key is in
+                    boiling the spices *with* the water.</p>
+
+                <details>
+                    <summary>View Full Recipe</summary>
+                    <h4>Ingredients</h4>
+                    <ul>
+                        <li>1 cup Water</li>
+                        <li>1 cup Whole Milk</li>
+                        <li>2 tsp Black Tea Leaves</li>
+                        <li>4 Green Cardamom pods, crushed</li>
+                        <li>1 inch Ginger, grated</li>
+                    </ul>
+
+                    <h4>Instructions</h4>
+                    <ol>
+                        <li>Boil water with crushed cardamom and ginger for 3 minutes.</li>
+                        <li>Add tea leaves and simmer for 2 minutes using low heat.</li>
+                        <li>Add milk and bring to a boil again.</li>
+                        <li>Strain and serve hot with biscuits.</li>
+                    </ol>
+                </details>
+
+
+            </article>
+
+            <!-- RECIPE 2: Butter Chicken -->
+            <article id="curries">
+                <header>
+                    <h3>Classic Butter Chicken</h3>
+                </header>
+                <p>Rich, creamy, and mildly spicy. This restaurant-style butter chicken is easier to make at home than
+                    you think.</p>
+
+                <blockquote tabindex="0">
+                    "Tip: Always use Fenugreek leaves (Kasuri Methi) at the end. It gives the dish that signature smoky
+                    aroma."
+                </blockquote>
+
+                <details>
+                    <summary>View Full Recipe</summary>
+                    <h4>Ingredients</h4>
+                    <ul>
+                        <li>500g Chicken Thighs</li>
+                        <li>2 tbsp Butter/Ghee</li>
+                        <li>1 cup Tomato Puree</li>
+                        <li>1/2 cup Heavy Cream</li>
+                        <li>2 tbsp Cashew Paste</li>
+                        <li>1 tsp Garam Masala</li>
+                    </ul>
+
+                    <h4>Instructions</h4>
+                    <ol>
+                        <li>Marinate chicken with yogurt and spices for 2 hours.</li>
+                        <li>Sear chicken in a pan until golden. Set aside.</li>
+                        <li>In the same pan, cook tomato puree, cashew paste, and spices.</li>
+                        <li>Add chicken back, pour in cream, and simmer.</li>
+                        <li>Finish with fenugreek leaves (Kasuri Methi).</li>
+                    </ol>
+                </details>
+
+
+            </article>
+
+
+
+            <!-- RECIPE 4: Dessert Placeholder -->
+
+        </section>
+
+        <!-- Sidebar / Aside -->
+        <aside aria-label="Sidebar">
+            <section>
+                <h3>Recipe Categories</h3>
+                <ul>
+                    <li><a href="#curries">Curries</a></li>
+                    <li><a href="#beverages">Beverages</a></li>
+                </ul>
+            </section>
+
+
+        </aside>
+
+        <!-- Contact / Request Form -->
+        <section id="contact" aria-labelledby="contact-title">
+            <h2 id="contact-title">Request a Recipe</h2>
+            <form action="#contact" method="get">
+                <fieldset>
+                    <legend>Your Details</legend>
+                    <p>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </p>
+                    <p>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required placeholder="you@example.com"
+                            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Enter valid email address"
+                            oninvalid="this.setCustomValidity('Enter valid email address')"
+                            oninput="this.setCustomValidity('')">
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Request</legend>
+                    <p>
+                        <label for="request-type">Type:</label>
+                        <select id="request-type" name="type">
+                            <option value="recipe">Specific Recipe</option>
+                            <option value="technique">Cooking Technique</option>
+                            <option value="collab">Collaboration</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="message">Details:</label>
+                        <br>
+                        <textarea id="message" name="message" rows="5" cols="40" required
+                            placeholder="Which dish do you want to learn?"></textarea>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <button type="submit">Send Request</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <address>
+            Contact us at: <a href="mailto:hello@indianspicebox.com">hello@indianspicebox.com</a><br>
+            Noida, Uttar Pradesh, India
+        </address>
+        <p>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.8392319286!2d77.2089851185566!3d28.5355160867451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a43173357b%3A0x10526619a84d3e8!2sNoida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin"
+                width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" title="Our Location in Noida">
+            </iframe>
+        </p>
+        <p>&copy; 2026 The Indian Spice Box. Spreading aromas worldwide.</p>
+    </footer>
+
+</body>
+
+</html>

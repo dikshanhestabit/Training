@@ -1,0 +1,9 @@
+echo "Running ESLint..."
+npm run lint || exit 1
+
+echo "Running Prettier check..."
+npm run format || exit 1
+
+echo "Running validation script..."
+./validate.sh || exit 1
+

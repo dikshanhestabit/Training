@@ -33,9 +33,4 @@ The contact form uses built-in HTML5 validation:
 - **Details & Summary**: Used `<details>` and `<summary>` tags to create native, JavaScript-free interactive accordions for long recipe content.
 - **Embedded Map**: Integrated a Google Map using an `<iframe>` in the footer to satisfy media embedding requirements comfortably without external scripts.
 
-## How to Verify
-1.  Open `blog.html` in a web browser.
-2.  Inspect the code to confirm zero `<div>` tags are used.
-3.  Test the form by trying to submit without filling "Name" or entering a bad email (observe custom error message).
-4.  Verify the **Google Map** iframe loads in the footer.
-5.  Click "View Full Recipe" to test the `<details>`/`<summary>` interaction.
+

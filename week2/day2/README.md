@@ -3,17 +3,15 @@
 ## Overview
 A responsive e-commerce layout built using **Flexbox** and **CSS Grid**, following a mobile-first approach.
 
----
 
 ## Reference vs Implementation
 
 ### Reference Layout
 ![reference](screenshots/reference.png)
 
-### My Implementation
+### My Implementation(Desktop - View)
 ![Desktop View](screenshots/Desktop_view.png)
 
----
 
 ## Technical Implementation
 
@@ -27,8 +25,6 @@ A responsive e-commerce layout built using **Flexbox** and **CSS Grid**, followi
 | **Sidebar** | Stack boxes vertically | `flex-direction: column` |
 
 
----
-
 ### 2. CSS Grid Usage
 
 | Component | Purpose | Code |
@@ -36,7 +32,6 @@ A responsive e-commerce layout built using **Flexbox** and **CSS Grid**, followi
 | **Main + Sidebar** | 2-column layout | `grid-template-columns: 2fr 1fr` |
 | **Product Grid** | Responsive columns | `repeat(2, 1fr)` → `repeat(3, 1fr)` |
 
----
 
 ### 3. Responsive Breakpoints
 
@@ -57,8 +52,6 @@ A responsive e-commerce layout built using **Flexbox** and **CSS Grid**, followi
 }
 ```
 
----
-
 ### 4. CSS Specificity Demonstrations
 
 ```css
@@ -71,8 +64,6 @@ button[type="button"]:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
 /* Direct child combinator */
 .sidebar > div { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
 ```
-
----
 
 ## Responsive Behavior
 

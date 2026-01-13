@@ -1,4 +1,4 @@
-# Day 2: CSS Layout Mastery - ShopGenius
+# Day 2: CSS Layout Mastery 
 
 ## Overview
 A responsive e-commerce layout built using **Flexbox** and **CSS Grid**, following a mobile-first approach.

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopGenius - CSS Layout Mastery</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR: Header + Menu (Flexbox) -->
+    <header class="navbar">
+        <div class="header-box">ShopGenius</div>
+        <nav class="menu-box">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Products</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION (Full-width) -->
+    <section class="hero">
+        <h1>Welcome to ShopGenius</h1>
+        <p>Discover amazing products at unbeatable prices</p>
+    </section>
+
+    <!-- MAIN CONTENT AREA (Grid: Main + Sidebar) -->
+    <div class="content-wrapper">
+        <main class="main-content">
+            <h2>Featured Products</h2>
+            <div class="product-grid">
+                <article class="product-card">
+                    <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/32cc0bad-3da3-48a9-aacb-c4f8fecba307.__CR0,216,4500,2784_PT0_SX970_V1___.jpeg"
+                        alt="Premium Watch" class="card-img">
+                    <h3>Premium Watch</h3>
+                    <p class="price">$120.00</p>
+                    <button type="button">Add to Cart</button>
+                </article>
+                <article class="product-card">
+                    <img src="https://mahetri.in/cdn/shop/collections/Leather-Messenger-bag_1200x1200.jpg?v=1649314946"
+                        alt="Leather Bag" class="card-img">
+                    <h3>Leather Bag</h3>
+                    <p class="price">$85.00</p>
+                    <button type="button">Add to Cart</button>
+                </article>
+                <article class="product-card">
+                    <img src="https://image.the-woggles.com/cache/catalog/products/woggles_new_image_9_12_2022/midnight_polarized_wayfarer_sunglasses_base_28-9-2023_400x400.jpg"
+                        alt="Sunglasses" class="card-img">
+                    <h3>Sunglasses</h3>
+                    <p class="price">$45.00</p>
+                    <button type="button">Add to Cart</button>
+                </article>
+                <article class="product-card">
+                    <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/395829/01/sv05/fnd/IND/fmt/png/Carina-Slim-Perf-Women's-Sneakers"
+                        alt="Sneakers" class="card-img">
+                    <h3>Sneakers</h3>
+                    <p class="price">$99.00</p>
+                    <button type="button">Add to Cart</button>
+                </article>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-image">
+                <h3>New Arrivals</h3>
+                <p>Check out our latest collection of premium accessories and fashion items</p>
+                <button type="button" class="sidebar-btn">Explore Now</button>
+            </div>
+            <div class="sidebar-extra">
+                <h3>Special Offers</h3>
+                <p>Get up to 30% off on selected items. Limited time only!</p>
+                <button type="button" class="sidebar-btn">Shop Deals</button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- BANNER SECTION (Full-width) -->
+    <section class="banner">
+        <h2>Limited Time Offer!</h2>
+        <p>Get 20% off on all products this week</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ShopGenius. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

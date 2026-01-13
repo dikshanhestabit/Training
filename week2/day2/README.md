@@ -8,10 +8,10 @@ A responsive e-commerce layout built using **Flexbox** and **CSS Grid**, followi
 ## Reference vs Implementation
 
 ### Reference Layout
-![Reference](https://cdn.mos.cms.futurecdn.net/gnvkfwLFzB7yGtbTjzqURA.jpg)
+![Reference](screenshots/refernce.png)
 
 ### My Implementation
-![Desktop View](/home/dikshanain/.gemini/antigravity/brain/19c616ab-caab-48fd-87f7-2698f7afe247/sidebar_fixed_desktop_1768299830733.png)
+![Desktop View](screenshots/Desktop_view.png)
 
 ---
 

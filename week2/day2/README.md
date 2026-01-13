@@ -8,7 +8,7 @@ A responsive e-commerce layout built using **Flexbox** and **CSS Grid**, followi
 ## Reference vs Implementation
 
 ### Reference Layout
-![Reference](screenshots/refernce.png)
+![reference](screenshots/reference.png)
 
 ### My Implementation
 ![Desktop View](screenshots/Desktop_view.png)

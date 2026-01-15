@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Todo App | Day 4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>My Todo List</h1>
+        </header>
+
+        <section class="input-section">
+            <div class="input-group">
+                <input type="text" id="todo-input" placeholder="What needs to be done?" aria-label="New todo item">
+                <button id="add-btn">Add Task</button>
+            </div>
+        </section>
+
+        <section class="filter-section">
+            <input type="text" id="search-input" placeholder="Search tasks..." aria-label="Search todos">
+            <div class="groups-info" id="groups-info">
+                <!-- Group numbers will appear here -->
+            </div>
+        </section>
+
+        <main id="todo-list-container">
+            <ul id="todo-list">
+                <!-- Todos will be injected here -->
+            </ul>
+        </main>
+
+        <footer>
+            <div class="status-bar">
+                <span id="task-count">0 tasks left</span>
+                <button id="clear-completed" class="btn-text">Clear Completed</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal for Editing -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <h2>Edit Task</h2>
+            <input type="text" id="edit-input">
+            <div class="modal-actions">
+                <button id="cancel-edit" class="btn-secondary">Cancel</button>
+                <button id="save-edit" class="btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

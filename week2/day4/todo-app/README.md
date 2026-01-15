@@ -1,4 +1,4 @@
-# DAY 4 – Todo App - JS Utilities & LocalStorage
+# DAY 4 : Todo App - JS Utilities & LocalStorage
 
 I built this Todo App to demonstrate modular JavaScript, data persistence, and performance utilities.
 
@@ -17,10 +17,8 @@ I built this Todo App to demonstrate modular JavaScript, data persistence, and p
 - **Watch Expressions**: Monitored the `todos` array in real-time.
 
 ## How to Test
-### 1. Live Link (GitHub Pages)
-If you are viewing this on GitHub, go to **Settings > Pages** and enable deployment from the `main` branch to see the app live.
 
-### 2. Local Testing
+### Local Testing
 Because this project uses ES Modules (`type="module"`), it must be served over HTTP.
 From the **parent directory of `todo-app/`**, run:
 

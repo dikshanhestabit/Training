@@ -15,7 +15,7 @@ A modern, responsive e-commerce product listing page built with Vanilla JS, HTML
 ![Landing Page](screenshots/landing.png)
 Designed a clean and modern landing page with a clear "Shop Now" button to guide users effectively to the main product catalog.
 
-### 2. Product Catalog
+### 2. Desktop Page
 ![Product Catalog](screenshots/Full_desktop.png)
 Fetched data from the DummyJSON API and displayed it in a responsive grid layout. The interface is designed to present product information clearly.
 
@@ -29,6 +29,7 @@ Added functionality to sort products by price (High to Low and Low to High). Thi
 
 ### 5. Mobile Responsiveness
 ![Mobile Responsiveness](screenshots/Mobile_Responsiveness.png)
+
 Ensured the application is fully responsive. On mobile devices, the product grid automatically adapts to a single-column layout for optimal readability and usability.
 
 ## Key Learnings

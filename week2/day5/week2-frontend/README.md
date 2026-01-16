@@ -13,7 +13,7 @@ A modern, responsive e-commerce product listing page built with Vanilla JS, HTML
 
 ### 1. Landing Page
 ![Landing Page](screenshots/landing.png)
-Designed a clean and modern landing page with a clear "Shop Now" button to guide users effectively to the main product catalog.
+Designed a clean landing page with a clear "Shop Our Collection" button to guide users effectively to the main product catalog.
 
 ### 2. Desktop Page
 ![Product Catalog](screenshots/Full_desktop.png)

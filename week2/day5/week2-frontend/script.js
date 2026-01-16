@@ -29,7 +29,6 @@ function populateCategories() {
     rawCategories.sort().forEach(category => {
         const option = document.createElement('option');
         option.value = category;
-        // Remove 'mens-' if it exists at the start of the category
         const label = category.replace(/^mens-/, '');
         option.textContent = label.charAt(0).toUpperCase() + label.slice(1);
         categoryFilter.appendChild(option);
@@ -48,7 +47,6 @@ function renderProducts(products) {
     }
 
     productGrid.innerHTML = products.map(product => {
-        // Clean up category label for the badge as well
         const displayCategory = product.category.replace(/^mens-/, '');
 
         return `
@@ -84,7 +82,7 @@ function applyFiltersAndSort(event) {
 
     // 1. Filter
     filteredProducts = allProducts.filter(product => {
-        // Search in Title and Category only for better relevance
+        
         const matchesSearch = product.title.toLowerCase().includes(searchTerm) ||
             product.category.toLowerCase().includes(searchTerm);
 

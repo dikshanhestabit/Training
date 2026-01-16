@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | QuickCart</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons for search icon -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span>⚡</span> QuickCart
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="controls">
+            <div class="search-wrapper">
+                <i data-lucide="search"
+                    style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 1.25rem; color: var(--text-muted);"></i>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search for products...">
+            </div>
+
+            <div class="filters">
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <!-- Categories will be loaded dynamically -->
+                </select>
+
+                <select id="sortSelect">
+                    <option value="default">Sort By</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                </select>
+            </div>
+        </header>
+
+        <main id="productGrid" class="product-grid">
+            <!-- Loading state -->
+            <div class="loader">
+                <div class="spinner"></div>
+                <p style="margin-top: 1rem; color: var(--text-muted);">Fetching premium products...</p>
+            </div>
+        </main>
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border); margin-top: 4rem;">
+        <p>&copy; 2026 QuickCart. Powered by DummyJSON.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

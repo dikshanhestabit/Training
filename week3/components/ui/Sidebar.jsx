@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Link from 'next/link';
 
@@ -7,7 +6,7 @@ const Sidebar = () => {
         <aside className="w-64 bg-slate-700 h-screen fixed top-0 left-0 flex flex-col z-40 font-sans shadow-lg">
             <div className="h-16 flex items-center justify-center border-b border-slate-800 bg-slate-900">
                 <Link href="/" className="font-bold text-xl text-white tracking-wide no-underline hover:text-gray-200">
-                    MY DASHBOARD
+                    STUDENT PORTAL
                 </Link>
             </div>
 

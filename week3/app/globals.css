@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #4e73df;
+  --color-brand-dark: #2e59d9;
+  --color-sidebar-bg: #4e73df;
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 248, 249, 252;
+  --background-end-rgb: 248, 249, 252;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: white;
+}

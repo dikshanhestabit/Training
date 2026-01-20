@@ -3,7 +3,6 @@
 ## Overview
 This folder contains a small reusable component library built with **TailwindCSS** and **Next.js**. All components are functional React components that accept props for customization.
 
----
 
 ## `Button.jsx`
 - **Props**
@@ -12,8 +11,6 @@ This folder contains a small reusable component library built with **TailwindCSS
   - `variant` – `"primary"`, `"secondary"`, `"success"`, `"info"`, `"warning"`, `"danger"`
   - `className` – additional Tailwind classes
   - any other native button props via `...rest`
-
----
 
 ## `Input.jsx`
 - **Props**
@@ -24,7 +21,6 @@ This folder contains a small reusable component library built with **TailwindCSS
   - `className` – extra classes
   - any other native input props via `...rest`
 
----
 
 ## `Card.jsx`
 - **Props**
@@ -33,15 +29,12 @@ This folder contains a small reusable component library built with **TailwindCSS
   - `variant` – `"default"`, `"primary"`, `"success"`, `"info"`, `"warning"`, `"danger"`
   - `className` – extra Tailwind classes
 
----
 
 ## `Badge.jsx`
 - **Props**
   - `children` – badge label
   - `variant` – `"default"`, `"success"`, `"warning"`, `"danger"`, `"info"`
   - `className` – extra classes
-
----
 
 ## `Modal.jsx`
 - **Props**

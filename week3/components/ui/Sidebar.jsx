@@ -10,34 +10,35 @@ const Sidebar = () => {
                 </Link>
             </div>
 
-            <div className="flex-1 py-6">
+            <div className="flex-1 py-6 space-y-1">
                 <Link
                     href="/"
-                    className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-slate-600 transition-colors no-underline"
+                    className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-slate-800 transition-colors no-underline"
                 >
-                    <span className="font-medium">Overview</span>
+                    <span className="font-medium">Home Page</span>
                 </Link>
 
                 <Link
-                    href="#"
-                    className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-slate-600 transition-colors no-underline"
+                    href="/dashboard"
+                    className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-slate-800 transition-colors no-underline"
                 >
-                    <span className="font-medium">My Assignments</span>
+                    <span className="font-medium">Dashboard</span>
                 </Link>
+
                 <Link
-                    href="#"
-                    className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-slate-600 transition-colors no-underline"
+                    href="/dashboard/profile"
+                    className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-slate-800 transition-colors no-underline"
                 >
-                    <span className="font-medium">Resources</span>
+                    <span className="font-medium">My Profile</span>
                 </Link>
+
                 <Link
-                    href="#"
-                    className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-slate-600 transition-colors no-underline"
+                    href="/about"
+                    className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-slate-800 transition-colors no-underline"
                 >
-                    <span className="font-medium">Class Schedule</span>
+                    <span className="font-medium">About Us</span>
                 </Link>
             </div>
-
         </aside>
     );
 };

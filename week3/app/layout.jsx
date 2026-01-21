@@ -1,8 +1,5 @@
-
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/ui/Sidebar";
-import Navbar from "@/components/ui/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Day 1 Dashboard",
-  description: "Week 3 Day 1 Task",
+  title: "Day 3 - Student Portal",
+  description: "Next.js Routing and Nested Layouts",
 };
 
 export default function RootLayout({ children }) {
@@ -25,17 +22,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50`}
       >
-        <div className="flex">
-          <Sidebar />
-
-          <div className="flex-1 ml-64 flex flex-col min-h-screen">
-            <Navbar />
-
-            <main className="p-6 mt-16 flex-1">
-              {children}
-            </main>
-          </div>
-        </div>
+        {children}
       </body>
     </html>
   );

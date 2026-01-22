@@ -12,8 +12,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Day 3 - Student Portal",
-  description: "Next.js Routing and Nested Layouts",
+  title: "StudentPortal - The All-in-One Management System",
+  description: "Optimized student management portal for assignments, grades, and profile tracking. Built with Next.js and Tailwind CSS.",
+  keywords: ["student portal", "education management", "nextjs dashboard", "responsive school app"],
 };
 
 export default function RootLayout({ children }) {

@@ -5,7 +5,7 @@ export default function DashboardPage() {
         <div className="space-y-6">
             <h2 className="text-2xl font-bold text-gray-800 tracking-tight">Dashboard Overview</h2>
 
-            {/* Colorful Stat Cards from Day 2 */}
+            {/* Stat Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <Card title="Assignments" variant="primary">
                     <p className="text-3xl font-bold">12</p>
@@ -28,7 +28,7 @@ export default function DashboardPage() {
                 </Card>
             </div>
 
-            {/* Restored Task 2 Sections below the cards */}
+            
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <Card title="Search & Actions">
                     <div className="space-y-4">

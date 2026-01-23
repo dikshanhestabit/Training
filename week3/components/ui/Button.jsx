@@ -1,4 +1,4 @@
-export default function Button({ children, onClick, variant = "primary", className = "", ...rest }) {
+export default function Button({ children, onClick, variant = "primary", className = "", fullWidth, ...rest }) {
     const base = "px-4 py-2 rounded font-medium transition-colors text-sm";
     const variants = {
         primary: "bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200",
@@ -11,7 +11,7 @@ export default function Button({ children, onClick, variant = "primary", classNa
     return (
         <button
             onClick={onClick}
-            className={`${base} ${variants[variant] || variants.primary} ${className}`}
+            className={`${base} ${variants[variant] || variants.primary} ${fullWidth ? "w-full" : ""} ${className}`}
             {...rest}
         >
             {children}

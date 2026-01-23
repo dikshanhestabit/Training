@@ -33,10 +33,24 @@ const Sidebar = () => {
                 </Link>
 
                 <Link
+                    href="/dashboard/users"
+                    className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-slate-800 transition-colors no-underline"
+                >
+                    <span className="font-medium">Users Listing</span>
+                </Link>
+
+                <Link
                     href="/about"
                     className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-slate-800 transition-colors no-underline"
                 >
                     <span className="font-medium">About Us</span>
+                </Link>
+
+                <Link
+                    href="/login"
+                    className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-slate-800 transition-colors no-underline"
+                >
+                    <span className="font-medium">Login Page</span>
                 </Link>
             </div>
         </aside>

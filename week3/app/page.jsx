@@ -23,7 +23,9 @@ export default function LandingPage() {
         <div className="hidden md:flex gap-6 items-center text-sm">
           <Link href="/about" className="text-gray-600 hover:text-black">About</Link>
           <Link href="/dashboard" className="text-gray-600 hover:text-black">Dashboard</Link>
-          <Link href="/dashboard/profile" className="text-gray-600 hover:text-black">Profile</Link>
+          <Link href="/login">
+            <Button variant="primary" className="px-5 py-1.5 text-xs">Login</Button>
+          </Link>
         </div>
       </nav>
 
@@ -114,9 +116,9 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { name: "Arjun Mehta", text: "It helps me stay on top of my assignments. Simple and useful." },
-              { name: "Priya Sharma", text: "The attendance tracker is my favorite part. No more guessing!" },
-              { name: "Rahul Singh", text: "Very clear and easy to navigate. Does exactly what it says." }
+              { name: "abc", text: "It helps me stay on top of my assignments. Simple and useful." },
+              { name: "def", text: "The attendance tracker is my favorite part. No more guessing!" },
+              { name: "ghi", text: "Very clear and easy to navigate. Does exactly what it says." }
             ].map((t, idx) => (
               <div key={idx} className="bg-white p-6 border border-gray-200 rounded text-sm">
                 <p className="mb-4">"{t.text}"</p>
@@ -131,19 +133,7 @@ export default function LandingPage() {
           
       */}
       <footer className="px-6 py-10 bg-gray-100 text-gray-600 border-t border-gray-200">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-
-          {/* Logo/Branding Placeholder */}
-          <div className="text-lg font-bold text-gray-800"></div>
-
-          {/* Quick Links */}
-          <div className="flex gap-6 text-sm">
-            <Link href="/about" className="hover:text-black">About Us</Link>
-            <Link href="/dashboard" className="hover:text-black">Dashboard</Link>
-            <Link href="/dashboard/profile" className="hover:text-black">Profile</Link>
-          </div>
-
-          {/* Copyright Info */}
+        <div className="max-w-6xl mx-auto text-center">
           <div className="text-xs">
             © {new Date().getFullYear()} All Rights Reserved.
           </div>

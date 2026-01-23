@@ -28,7 +28,7 @@ export default function DashboardPage() {
                 </Card>
             </div>
 
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <Card title="Search & Actions">
                     <div className="space-y-4">
@@ -46,7 +46,7 @@ export default function DashboardPage() {
                 <Card title="Recent Activity">
                     <div className="space-y-4">
                         <p className="text-sm text-gray-600 text-left">Current status of your enrollment.</p>
-                        <div className="p-3 bg-gray-50 border rounded text-sm text-gray-500 italic">
+                        <div className="p-3 bg-white border rounded text-sm text-gray-700">
                             No recent activity to display.
                         </div>
                     </div>

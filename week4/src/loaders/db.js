@@ -8,7 +8,8 @@ module.exports = async () => {
         Logger.info('Database connected');
         return connection.connection.db;
     } catch (err) {
-        Logger.error('🔥 Error connecting to database: %o', err);
+        Logger.error('Error connecting to database: %o', err);
         throw err;
     }
 };
+

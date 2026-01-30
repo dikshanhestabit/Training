@@ -1,5 +1,6 @@
 const express = require('express');
 const Logger = require('../utils/logger');
+const { errorHandler, notFoundHandler } = require('../middlewares/error.middleware');
 
 module.exports = ({ app }) => {
     app.use(express.json());
@@ -10,19 +11,8 @@ module.exports = ({ app }) => {
     Logger.info(`Routes mounted: ${routeCount} endpoints`);
 
     // 404 handler
-    app.use((req, res, next) => {
-        const err = new Error('Not Found');
-        err['status'] = 404;
-        next(err);
-    });
+    app.use(notFoundHandler);
 
     // Global error handler
-    app.use((err, req, res, next) => {
-        res.status(err.status || 500);
-        res.json({
-            errors: {
-                message: err.message,
-            },
-        });
-    });
+    app.use(errorHandler);
 };

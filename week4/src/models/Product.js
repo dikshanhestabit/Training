@@ -26,6 +26,18 @@ const ProductSchema = new mongoose.Schema(
       enum: ['active', 'inactive'],
       default: 'active',
     },
+
+    tags: {
+      type: [String],
+      default: [],
+      index: true,
+    },
+
+    deletedAt: {
+      type: Date,
+      default: null,
+      index: true,
+    },
   },
   {
     timestamps: true,
@@ -33,19 +45,14 @@ const ProductSchema = new mongoose.Schema(
   }
 );
 
-/**
- * 🔹 Virtual Field
- * Example: computed rating label
- */
+/**Virtual Field */
 ProductSchema.virtual('ratingLabel').get(function () {
   if (this.rating >= 4) return 'Excellent';
   if (this.rating >= 2) return 'Average';
   return 'Poor';
 });
 
-/**
- * 🔹 Compound Index
- */
+/** Compound Index */
 ProductSchema.index({ status: 1, createdAt: -1 });
 
 module.exports = mongoose.model('Product', ProductSchema);

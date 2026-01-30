@@ -43,16 +43,14 @@ const UserSchema = new mongoose.Schema(
   }
 );
 
-/**
- * 🔹 Virtual Field
+/**Virtual Field
  * fullName is computed, not stored in DB
  */
 UserSchema.virtual('fullName').get(function () {
   return `${this.firstName} ${this.lastName}`;
 });
 
-/**
- * 🔹 Pre-save Hook
+/**Pre-save Hook
  * Hash password before saving
  */
 UserSchema.pre('save', async function () {
@@ -62,9 +60,7 @@ UserSchema.pre('save', async function () {
   
 });
 
-/**
- * 🔹 Compound Index
- */
+/**Compound Index */
 UserSchema.index({ status: 1, createdAt: -1 });
 
 module.exports = mongoose.model('User', UserSchema);

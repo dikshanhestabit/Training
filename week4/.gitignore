@@ -5,4 +5,4 @@ logs/*.log
 package-lock.json
 src/logs/
 *.log
-
+src/utils/test.js

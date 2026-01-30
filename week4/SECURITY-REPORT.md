@@ -1,6 +1,6 @@
 # Security Test Report
 
-## 1. Input Validation Tests (Joi)
+## 1. Input Validation Tests 
 
 ### Case 1.1: Create User with Invalid Email
 - **Command:**
@@ -11,7 +11,7 @@
   ```
 - **Expected Result:** `400 Bad Request` with validation error details.
 - **Actual Result:** 
-![Invalide_Email](screenshots/Invalide_Email.png)
+![Invalid_email](screenshots/Invalid_email.png)
 
 ### Case 1.2: Create Product with Negative Price
 - **Command:**

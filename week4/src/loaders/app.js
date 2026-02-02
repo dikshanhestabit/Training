@@ -2,10 +2,16 @@ const express = require('express');
 const Logger = require('../utils/logger');
 const { errorHandler, notFoundHandler } = require('../middlewares/error.middleware');
 const { setupPreSecurity, setupPostSecurity } = require('../middlewares/security');
+const { tracingMiddleware } = require('../utils/tracing');
+
 
 module.exports = ({ app }) => {
+    // 0. Tracing Middleware (First)
+    app.use(tracingMiddleware);
+
     // 1. Pre-Processing Security (Helmet, CORS, RateLimit)
     setupPreSecurity(app);
+
 
     // 2. Body Parsing (with Size Limit)
     app.use(express.json({ limit: '10kb' }));

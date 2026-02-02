@@ -38,6 +38,12 @@ const ProductSchema = new mongoose.Schema(
       default: null,
       index: true,
     },
+
+    creator: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      index: true,
+    },
   },
   {
     timestamps: true,

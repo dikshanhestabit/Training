@@ -25,11 +25,17 @@ const colors = {
 
 winston.addColors(colors);
 
+const { getRequestId } = require('./tracing');
+
 const format = winston.format.combine(
   winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss:ms' }),
   winston.format.colorize({ all: true }),
   winston.format.printf(
-    (info) => `${info.timestamp} ${info.level}: ${info.message}`,
+    (info) => {
+      const requestId = getRequestId();
+      const requestIdStr = requestId ? ` [${requestId}]` : '';
+      return `${info.timestamp}${requestIdStr} ${info.level}: ${info.message}`;
+    },
   ),
 );
 

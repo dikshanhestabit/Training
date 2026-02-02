@@ -1,4 +1,4 @@
-# DAY 1 — NODE + PROJECT ARCHITECTURE
+# NODE + PROJECT ARCHITECTURE
 
 This project follows a clean, layered architecture to ensure scalability, maintainability, and separation of concerns.
 

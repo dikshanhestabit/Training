@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone App </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: #f4f4f4;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        .up {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .down {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #fff;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Capstone Project</h1>
+        <p>full-stack app in Docker with reverse proxy + HTTPS</p>
+
+        <div id="health-status" class="status">Checking backend health...</div>
+
+        <h3>Add your name</h3>
+        <input type="text" id="itemName" placeholder="Enter name">
+        <button onclick="addItem()">Add to DB</button>
+
+        <h3>Data from MongoDB</h3>
+        <button onclick="fetchData()">Refresh List</button>
+        <ul id="dataList"></ul>
+    </div>
+
+    <script>
+        const healthDiv = document.getElementById('health-status');
+        const dataList = document.getElementById('dataList');
+
+        async function checkHealth() {
+            try {
+                const res = await fetch('/api/health');
+                const data = await res.json();
+                healthDiv.textContent = `Backend Status: ${data.status}`;
+                healthDiv.className = 'status up';
+            } catch (err) {
+                healthDiv.textContent = 'Backend Status: DOWN';
+                healthDiv.className = 'status down';
+            }
+        }
+
+        async function fetchData() {
+            try {
+                const res = await fetch('/api/data');
+                const items = await res.json();
+                dataList.innerHTML = items.map(i => `<li>${i.name} (at ${new Date(i.createdAt).toLocaleString()})</li>`).join('');
+            } catch (err) {
+                console.error('Fetch error:', err);
+            }
+        }
+
+        async function addItem() {
+            const name = document.getElementById('itemName').value;
+            if (!name) return;
+            try {
+                await fetch('/api/data', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name })
+                });
+                document.getElementById('itemName').value = '';
+                fetchData();
+            } catch (err) {
+                console.error('Add error:', err);
+            }
+        }
+
+        // Initial checks
+        checkHealth();
+        fetchData();
+        setInterval(checkHealth, 10000);
+    </script>
+</body>
+
+</html>

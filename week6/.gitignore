@@ -1,0 +1,15 @@
+# Virtual environment
+venv/
+
+# Python cache
+utils/__pycache__/
+*.pyc
+
+# Jupyter checkpoints
+notebooks/.ipynb_checkpoints/
+
+# Logs
+logs/app.log
+
+# Pip installer helper
+get-pip.py

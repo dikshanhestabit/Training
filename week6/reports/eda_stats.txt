@@ -1,0 +1,52 @@
+### Dataset Statistics
+- Total Rows: 32537
+- Total Columns: 15
+
+### Column Check
+age               float64
+workclass             str
+fnlwgt            float64
+education             str
+education.num     float64
+marital.status        str
+occupation            str
+relationship          str
+race                  str
+sex                   str
+capital.gain      float64
+capital.loss      float64
+hours.per.week    float64
+native.country        str
+income                str
+dtype: object
+
+### Missing Values (Processed)
+age                  0
+workclass         1836
+fnlwgt               0
+education            0
+education.num        0
+marital.status       0
+occupation        1843
+relationship         0
+race                 0
+sex                  0
+capital.gain         0
+capital.loss         0
+hours.per.week       0
+native.country     582
+income               0
+dtype: int64
+
+### Descriptive Statistics
+                age  ...  hours.per.week
+count  32537.000000  ...    32537.000000
+mean      38.559855  ...       41.203246
+std       13.554847  ...        6.187352
+min       17.000000  ...       32.500000
+25%       28.000000  ...       40.000000
+50%       37.000000  ...       40.000000
+75%       48.000000  ...       45.000000
+max       78.000000  ...       52.500000
+
+[8 rows x 6 columns]

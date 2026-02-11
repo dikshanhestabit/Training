@@ -1,28 +1,21 @@
-# Virtual environment
+# Virtual Environment
 venv/
 
-# Python cache
-__pycache__/
-*.pyc
+# Data Files (Keep structure, ignore data)
+data/raw/adult.csv
+data/processed/*.csv
+!data/processed/.gitkeep
 
-# Jupyter checkpoints
-.ipynb_checkpoints/
+# Models and Serialization
+features/feature_pipeline.pkl
 
 # Logs
 logs/
-*.log
 
-# Data files (don't push large datasets or processed csvs)
-data/raw/
-data/processed/
-*.csv
+# Python Cache
+__pycache__/
+utils/__pycache__/
 
-# Model and pipeline artifacts
-*.pkl
-models/
-
-# OS files
-.DS_Store
-
-# Pip installer helper
+# Interactive/Temporary
 get-pip.py
+.ipynb_checkpoints/

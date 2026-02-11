@@ -13,14 +13,6 @@ from utils.logger import logger
 
 
 class FeatureEngineer:
-    """
-    Feature engineering pipeline for Adult Income dataset.
-    
-    Handles:
-    - Categorical encoding (OneHot, Target, Label)
-    - Numerical transformations (log, sqrt, power)
-    - Feature generation
-    """
     
     def __init__(self):
         self.target_encoder = None
@@ -28,7 +20,6 @@ class FeatureEngineer:
         self.feature_names = None
         
     def fit(self, X, y):
-        """Fit all transformers on training data."""
         logger.info("Fitting feature engineering pipeline...")
         
         high_cardinality_cols = ['occupation', 'native.country', 'workclass']
@@ -39,7 +30,7 @@ class FeatureEngineer:
         return self
     
     def transform(self, X, y=None):
-        """Transform features and generate new features."""
+        #Transform features and generate new features.
         logger.info("Transforming features...")
         X = X.copy()
         

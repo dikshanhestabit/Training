@@ -16,7 +16,7 @@ from utils.logger import logger
 
 
 class FeatureSelector:
-    """Feature selection using mutual information."""
+    # Feature selection using mutual information.
     
     def __init__(self, n_features=20):
         self.n_features = n_features
@@ -24,7 +24,7 @@ class FeatureSelector:
         self.mi_scores = None
         
     def fit(self, X, y):
-        """Fit feature selector using mutual information."""
+        # Fit feature selector using mutual information.
         logger.info("=" * 60)
         logger.info("FEATURE SELECTION PIPELINE")
         logger.info("=" * 60)
@@ -42,20 +42,20 @@ class FeatureSelector:
         return self
     
     def transform(self, X):
-        """Apply feature selection to dataset."""
+        # Apply feature selection to dataset.
         return X[self.selected_features]
     
     def fit_transform(self, X, y):
-        """Fit and transform in one step."""
+        # Fit and transform in one step.
         self.fit(X, y)
         return self.transform(X)
     
     def get_selected_features(self):
-        """Get list of selected feature names."""
+        # Get list of selected feature names.
         return self.selected_features
     
     def plot_importance(self, output_dir='screenshots'):
-        """Generate and save feature importance visualization."""
+        # Generate and save feature importance visualization.
         os.makedirs(output_dir, exist_ok=True)
         
         plt.figure(figsize=(10, 8))
@@ -69,7 +69,7 @@ class FeatureSelector:
         logger.info(f"Saved feature importance plot to {output_dir}/feature_importance.png")
     
     def save_feature_list(self, filepath):
-        """Export selected features to JSON."""
+        # Export selected features to JSON.
         feature_data = {
             'total_features_before_selection': len(self.mi_scores),
             'total_features_after_selection': len(self.selected_features),
@@ -85,7 +85,7 @@ class FeatureSelector:
 
 
 def main():
-    """Main execution function for feature selection."""
+    # Main execution function for feature selection.
     logger.info("Starting feature selection process...")
     
     INPUT_DATA_PATH = os.path.join('data', 'processed', 'features_engineered.csv')

@@ -19,20 +19,20 @@
 
 ### Missing Values Heatmap
 Visualization of missing data patterns in the raw dataset before cleaning.
-![Missing Values Heatmap](reports/figures/missing_values_heatmap.png)
+![Missing Values Heatmap](screenshots/missing_values_heatmap.png)
 
 ### Target Distribution
 The dataset shows a class imbalance between `<=50K` and `>50K`.
-![Income Distribution](reports/figures/income_distribution.png)
+![Income Distribution](screenshots/income_distribution.png)
 
 ### Numerical Feature Distributions
 - **Age**: Right-skewed distribution, capped at upper bound.
-![Age Distribution](reports/figures/age_distribution.png)
+![Age Distribution](screenshots/age_distribution.png)
 
 ### Correlation Analysis
 - High correlation observed between `education-num` and `income` (requires encoding to visualize fully).
 - `capital-gain` is a strong indicator for `>50K` income.
-![Correlation Matrix](reports/figures/correlation_matrix.png)
+![Correlation Matrix](screenshots/correlation_matrix.png)
 
 ## 4. Key Findings
 1.  **Imbalance**: The majority of the dataset earns `<=50K`.

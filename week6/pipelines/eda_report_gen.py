@@ -19,7 +19,7 @@ def generate_report():
     logger.info(f"Loaded processed data. Shape: {df.shape}")
     
     # Create output directory for figures
-    report_dir = 'reports/figures'
+    report_dir = 'screenshots'
     os.makedirs(report_dir, exist_ok=True)
     
     # Generate Plots
@@ -71,7 +71,7 @@ def generate_report():
             logger.info(f"Generated {col}_distribution.png")
             
     # Generate Stats for Report
-    with open('reports/eda_stats.txt', 'w') as f:
+    with open('screenshots/eda_stats.txt', 'w') as f:
         f.write("### Dataset Statistics\n")
         f.write(f"- Total Rows: {df.shape[0]}\n")
         f.write(f"- Total Columns: {df.shape[1]}\n")
@@ -82,7 +82,7 @@ def generate_report():
         f.write("\n\n### Descriptive Statistics\n")
         f.write(str(df.describe()))
     
-    logger.info("Generated stats in reports/eda_stats.txt")
+    logger.info("Generated stats in screenshots/eda_stats.txt")
 
 if __name__ == "__main__":
     generate_report()

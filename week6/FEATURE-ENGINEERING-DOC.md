@@ -35,8 +35,3 @@ Applied feature selection to identify the most predictive features:
 - **Mutual Information (MI):** We used MI to rank all 51 features (raw + engineered + encoded) and selected the top 20. MI captures any kind of statistical dependency (linear or non-linear) between the features and the target income.
 - **Feature Importance Visualization:** The results were plotted in `screenshots/`, showing the top 20 most impactful features.
 
-## 5. Outputs & Deliverables
-The pipeline produces the following outputs:
-- **X_train, X_test, y_train, y_test:** Final stratified 80/20 splits saved in `data/processed/`.
-- **Feature Pipeline:** The fitted `FeatureEngineer` object is saved in `features/feature_pipeline.pkl` for reuse on new data.
-- **Feature List:** `features/feature_list.json` records the exact features selected during the process.

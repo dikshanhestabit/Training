@@ -25,8 +25,6 @@
 
 **Result**: The tuning process yielded a **+2.6% improvement** in F1 Score. The lower learning rate (`0.02`) combined with more estimators (`800`) suggests the model learned more granular patterns without overfitting.
 
----
-
 ## 2. Explainability (SHAP Analysis)
 Used SHAP (SHapley Additive exPlanations) to understand how features influence the model's predictions.
 
@@ -43,8 +41,6 @@ SHAP Summary Plot showing the impact of each feature on the model output.
 ### Feature Importance
 ![Feature Importance](screenshots/feature_importance.png)
 Global Feature Importance ranked by the model.
-
----
 
 ## 3. Error Analysis
 Analyzed where the model makes mistakes to understand its limitations.

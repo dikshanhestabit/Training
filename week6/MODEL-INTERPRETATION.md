@@ -1,4 +1,4 @@
-# Model Interpretation & Error Analysis
+# Model Interpretation 
 
 ## 1. Hyperparameter Tuning Results
 **Objective**: Optimize XGBoost implementation using Optuna.
@@ -23,8 +23,7 @@
 | Baseline XGBoost (Day 3) | F1 Score | 0.626 |
 | **Tuned XGBoost (Day 4)** | **F1 Score** | **0.652** |
 
-> [!TIP]
-> **Result**: The tuning process yielded a **+2.6% improvement** in F1 Score. The lower learning rate (`0.02`) combined with more estimators (`800`) suggests the model learned more granular patterns without overfitting.
+**Result**: The tuning process yielded a **+2.6% improvement** in F1 Score. The lower learning rate (`0.02`) combined with more estimators (`800`) suggests the model learned more granular patterns without overfitting.
 
 ---
 

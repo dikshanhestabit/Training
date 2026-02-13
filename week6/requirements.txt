@@ -8,3 +8,5 @@ category_encoders
 joblib
 xgboost
 lightgbm
+optuna
+shap

@@ -8,6 +8,7 @@ data/processed/*.csv
 
 # Models and Serialization
 features/feature_pipeline.pkl
+models/*.pkl
 
 # Logs
 logs/

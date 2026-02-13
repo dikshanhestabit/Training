@@ -30,6 +30,7 @@ Used SHAP (SHapley Additive exPlanations) to understand how features influence t
 
 ### SHAP Summary
 ![SHAP Summary](screenshots/shap_summary.png)
+
 SHAP Summary Plot showing the impact of each feature on the model output.
 
 **Key Insights**:
@@ -40,6 +41,7 @@ SHAP Summary Plot showing the impact of each feature on the model output.
 
 ### Feature Importance
 ![Feature Importance](screenshots/feature_importance.png)
+
 Global Feature Importance ranked by the model.
 
 ## 3. Error Analysis
@@ -47,6 +49,7 @@ Analyzed where the model makes mistakes to understand its limitations.
 
 ### Confusion Matrix Heatmap
 ![Error Heatmap](screenshots/error_heatmap.png)
+
 Confusion Matrix showing True Positives, True Negatives, False Positives, and False Negatives.
 
 ### Analysis of Misclassifications

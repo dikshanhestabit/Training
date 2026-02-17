@@ -20,8 +20,8 @@ def setup_logger(name, log_file, level=logging.INFO):
     
     return logger
 
-# Ensure logs directory exists
+# Ensuring logs directory exists
 os.makedirs('logs', exist_ok=True)
 
-# Create a default logger
+# Creating a default logger
 logger = setup_logger('app_logger', 'logs/app.log')

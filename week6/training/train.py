@@ -19,12 +19,12 @@ from sklearn.base import clone
 import xgboost as xgb
 import lightgbm as lgb
 
-# Add project root to path
+# Adding project root to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils.logger import logger
 
 def load_data(filepath):
-    """Load engineered features."""
+    """Load processed features."""
     if not os.path.exists(filepath):
         logger.error(f"File not found: {filepath}")
         sys.exit(1)
@@ -32,24 +32,20 @@ def load_data(filepath):
     return df
 
 def train_and_evaluate(X, y, models, k=5):
-    """
-    Train multiple models using k-fold cross-validation and return metrics.
-    """
+    """Train models using k-fold cross-validation."""
     results = {}
     best_model_name = None
     best_score = -1
-    best_model_instance = None # To retrain later
+    best_model_instance = None 
 
     kf = StratifiedKFold(n_splits=k, shuffle=True, random_state=42)
-    
     scoring = ['accuracy', 'precision', 'recall', 'f1', 'roc_auc']
 
     for name, model in models.items():
         logger.info(f"Training {name} with {k}-fold CV...")
+        cv_results = cross_validate(model, X, y, cv=kf, scoring=scoring, n_jobs=-1, return_train_score=True)
         
-        cv_results = cross_validate(model, X, y, cv=kf, scoring=scoring, n_jobs=-1)
-        
-        # Calculate mean scores
+        # Validation Metrics
         mean_metrics = {
             'Accuracy': float(np.mean(cv_results['test_accuracy'])),
             'Precision': float(np.mean(cv_results['test_precision'])),
@@ -58,10 +54,22 @@ def train_and_evaluate(X, y, models, k=5):
             'ROC-AUC': float(np.mean(cv_results['test_roc_auc']))
         }
         
-        results[name] = mean_metrics
-        logger.info(f"{name} Results: {mean_metrics}")
+        # Training Metrics
+        train_metrics = {
+            'Accuracy': float(np.mean(cv_results['train_accuracy'])),
+            'Precision': float(np.mean(cv_results['train_precision'])),
+            'Recall': float(np.mean(cv_results['train_recall'])),
+            'F1 Score': float(np.mean(cv_results['train_f1'])),
+            'ROC-AUC': float(np.mean(cv_results['train_roc_auc']))
+        }
+        
+        results[name] = {
+            'Validation': mean_metrics,
+            'Training': train_metrics
+        }
+        
+        logger.info(f"{name} Val F1: {mean_metrics['F1 Score']:.4f}")
 
-        # Determine best model based on F1 Score (or ROC-AUC)
         if mean_metrics['F1 Score'] > best_score:
             best_score = mean_metrics['F1 Score']
             best_model_name = name
@@ -70,7 +78,7 @@ def train_and_evaluate(X, y, models, k=5):
     return results, best_model_name, best_model_instance
 
 def plot_confusion_matrix(model, X, y, output_path):
-    """Generate and save confusion matrix plot."""
+    """Generate confusion matrix plot."""
     y_pred = model.predict(X)
     cm = confusion_matrix(y, y_pred)
     
@@ -96,48 +104,102 @@ def main():
     X = df.drop('income', axis=1)
     y = df['income']
     
-    # Initialize Models
+    # Loading Selected Features
+    FEATURE_LIST_PATH = os.path.join('features', 'feature_list.json')
+    if not os.path.exists(FEATURE_LIST_PATH):
+        logger.error(f"Feature list not found. Run feature_selector.py first.")
+        sys.exit(1)
+        
+    with open(FEATURE_LIST_PATH, 'r') as f:
+        feature_data = json.load(f)
+        selected_features = feature_data.get('selected_features', [])
+    
+    X = X[selected_features]
+    
+    # Calculating class weights
+    neg_count = (y == 0).sum()
+    pos_count = (y == 1).sum()
+    scale_pos_weight = neg_count / pos_count
+ 
+    # Initializing Models
     models = {
-        'Logistic Regression': LogisticRegression(max_iter=1000, random_state=42),
-        'Random Forest': RandomForestClassifier(n_estimators=100, random_state=42),
-        'XGBoost': xgb.XGBClassifier(use_label_encoder=False, eval_metric='logloss', random_state=42),
-        'Neural Network': MLPClassifier(hidden_layer_sizes=(100, 50), max_iter=500, random_state=42)
+        'Logistic Regression': LogisticRegression(
+            max_iter=1000, 
+            random_state=42, 
+            class_weight='balanced',
+            solver='liblinear'
+        ),
+        'Random Forest': RandomForestClassifier(
+            n_estimators=300, 
+            random_state=42, 
+            class_weight='balanced',
+            min_samples_leaf=5 
+        ),
+        'XGBoost': xgb.XGBClassifier(
+            use_label_encoder=False, 
+            eval_metric='logloss', 
+            random_state=42, 
+            scale_pos_weight=scale_pos_weight,
+            n_estimators=300,
+            learning_rate=0.1
+        ),
+        'Neural Network': MLPClassifier(
+            hidden_layer_sizes=(100, 50), 
+            max_iter=1000, 
+            random_state=42,
+            early_stopping=True,
+            validation_fraction=0.1
+        )
     }
     
-    # Train and Evaluate
+    # Training
     results, best_model_name, best_model_instance = train_and_evaluate(X, y, models)
     
-    # Save Metrics
+    # Saving Metrics
     metrics_path = os.path.join(EVAL_DIR, 'metrics.json')
     with open(metrics_path, 'w') as f:
         json.dump(results, f, indent=4)
-    logger.info(f"Metrics saved to {metrics_path}")
     
-    # Retrain Best Model on Full Data
-    logger.info(f"Retraining best model ({best_model_name}) on full dataset...")
+    # Saving Best Model
+    logger.info(f"Saving best model: {best_model_name}")
     best_model_instance.fit(X, y)
-    
-    # Save Best Model
     model_path = os.path.join(MODELS_DIR, 'best_model.pkl')
     joblib.dump(best_model_instance, model_path)
-    logger.info(f"Best model saved to {model_path}")
     
-    # Plot Confusion Matrix for Best Model
-    cm_path = os.path.join(EVAL_DIR, 'confusion_matrix.png')
+    # Plotting
+    screenshots_dir = 'screenshots'
+    os.makedirs(screenshots_dir, exist_ok=True)
+    cm_path = os.path.join(screenshots_dir, 'confusion_matrix_best_model.png')
     plot_confusion_matrix(best_model_instance, X, y, cm_path)
-    logger.info(f"Confusion matrix saved to {cm_path}")
 
-    # Create/Update MODEL-COMPARISON.md
+    # Report Generation
     comparison_path = 'MODEL-COMPARISON.md'
     with open(comparison_path, 'w') as f:
         f.write("# Model Comparison Report\n\n")
-        f.write("| Model | Accuracy | Precision | Recall | F1 Score | ROC-AUC |\n")
-        f.write("|-------|----------|-----------|--------|----------|---------|\n")
-        for name, metrics in results.items():
-            f.write(f"| {name} | {metrics['Accuracy']:.4f} | {metrics['Precision']:.4f} | {metrics['Recall']:.4f} | {metrics['F1 Score']:.4f} | {metrics['ROC-AUC']:.4f} |\n")
         
-        f.write(f"\n\n**Best Model:** {best_model_name} (F1 Score: {results[best_model_name]['F1 Score']:.4f})\n")
-    logger.info(f"Model comparison report saved to {comparison_path}")
+        f.write("## 1. Validation Performance\n\n")
+        f.write("|                     |   Accuracy |   Precision |   Recall |   F1 Score |   ROC-AUC |\n")
+        f.write("|:--------------------|-----------:|------------:|---------:|-----------:|----------:|\n")
+        
+        for name, metrics in results.items():
+            val = metrics['Validation']
+            f.write(f"| {name:<19} | {val['Accuracy']:10.6f} | {val['Precision']:11.6f} | {val['Recall']:8.6f} | {val['F1 Score']:10.6f} | {val['ROC-AUC']:9.6f} |\n")
+            
+        f.write("\n## 2. Training Performance\n\n")
+        f.write("|                     |   Accuracy |   Precision |   Recall |   F1 Score |   ROC-AUC |\n")
+        f.write("|:--------------------|-----------:|------------:|---------:|-----------:|----------:|\n")
+        
+        for name, metrics in results.items():
+            train = metrics['Training']
+            f.write(f"| {name:<19} | {train['Accuracy']:10.6f} | {train['Precision']:11.6f} | {train['Recall']:8.6f} | {train['F1 Score']:10.6f} | {train['ROC-AUC']:9.6f} |\n")
+        
+        f.write(f"\n## Best Model Selection\n")
+        f.write(f"The best model selected is **{best_model_name}**.\n\n")
+        
+        f.write("## Confusion Matrix\n")
+        f.write("![Confusion Matrix](screenshots/confusion_matrix_best_model.png)\n")
+
+    logger.info(f"Report saved to {comparison_path}")
 
 if __name__ == "__main__":
     main()

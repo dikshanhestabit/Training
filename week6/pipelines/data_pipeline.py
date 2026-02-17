@@ -56,11 +56,9 @@ def clean_data(df):
         logger.info(f"Removed {duplicates} duplicate rows.")
         
     # 3. Handling Outliers (IQR Method) for numerical columns
-    # We will focus on 'age' and 'hours-per-week' as likely candidates for outliers
-    # Note: outlier removal can reduce dataset size significantly, so be careful.
-    # For this exercise, we will cap outliers instead of removing them to preserve data, 
-    # or remove extreme cases. Let's remove them for simplicity as per common practice.
-    
+    # focus on 'age' and 'hours-per-week' as likely candidates for outliers
+    # Note: outlier removal can reduce dataset size significantly
+   
     numerical_cols = df.select_dtypes(include=[np.number]).columns
     
     for col in numerical_cols:
@@ -100,7 +98,7 @@ def main():
     RAW_DATA_PATH = os.path.join('data', 'raw', 'adult.csv')
     PROCESSED_DATA_PATH = os.path.join('data', 'processed', 'final.csv')
     
-    # Check if raw data exists
+    # Checking if raw data exists
     if not os.path.exists(RAW_DATA_PATH):
         logger.error(f"Raw data not found at {RAW_DATA_PATH}. Please download the dataset and place it there.")
         # Fallback to check for any csv in raw
@@ -111,7 +109,7 @@ def main():
         else:
             sys.exit(1)
 
-    # Execute pipeline
+    # Executing pipeline
     df = load_data(RAW_DATA_PATH)
     clean_df = clean_data(df)
     save_data(clean_df, PROCESSED_DATA_PATH)

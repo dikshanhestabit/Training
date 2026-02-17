@@ -10,3 +10,8 @@ xgboost
 lightgbm
 optuna
 shap
+fastapi
+uvicorn
+pydantic
+streamlit
+requests

@@ -4,12 +4,12 @@ import matplotlib.pyplot as plt
 import os
 import sys
 
-# Add project root to path
+# Adding project root to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils.logger import logger
 
 def generate_report():
-    # Load data
+    # Loading data
     processed_path = 'data/processed/final.csv'
     if not os.path.exists(processed_path):
         logger.error(f"File not found: {processed_path}")
@@ -18,11 +18,11 @@ def generate_report():
     df = pd.read_csv(processed_path)
     logger.info(f"Loaded processed data. Shape: {df.shape}")
     
-    # Create output directory for figures
+    # Creating output directory for figures
     report_dir = 'screenshots'
     os.makedirs(report_dir, exist_ok=True)
     
-    # Generate Plots
+    # Generating Plots
     
     # 1. Target Distribution
     plt.figure(figsize=(8, 6))
@@ -70,7 +70,7 @@ def generate_report():
             plt.close()
             logger.info(f"Generated {col}_distribution.png")
             
-    # Generate Stats for Report
+    # Generating Stats for Report
     with open('screenshots/eda_stats.txt', 'w') as f:
         f.write("### Dataset Statistics\n")
         f.write(f"- Total Rows: {df.shape[0]}\n")

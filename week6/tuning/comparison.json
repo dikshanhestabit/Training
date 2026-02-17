@@ -1,0 +1,22 @@
+{
+    "baseline": {
+        "f1": 0.6043673731535003,
+        "accuracy": 0.8106945298094653,
+        "precision": 0.6086675291073739,
+        "recall": 0.6001275510204082
+    },
+    "tuned": {
+        "f1": 0.6650918635170604,
+        "accuracy": 0.8039336201598033,
+        "precision": 0.5651204281891169,
+        "recall": 0.8080357142857143
+    },
+    "improvement_f1": 0.06072449036356009,
+    "best_params": {
+        "n_estimators": 750,
+        "max_depth": 28,
+        "min_samples_split": 16,
+        "min_samples_leaf": 6,
+        "max_features": "sqrt"
+    }
+}

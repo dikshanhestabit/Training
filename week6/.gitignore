@@ -1,5 +1,6 @@
 # Virtual Environment
 venv/
+.env
 
 # Data Files (Keep structure, ignore data)
 data/raw/adult.csv
@@ -10,13 +11,19 @@ data/processed/*.csv
 features/feature_pipeline.pkl
 models/*.pkl
 
-# Logs
+# Logs & Monitoring 
 logs/
+monitoring/*.csv
+monitoring/*.json
 
 # Python Cache
 __pycache__/
-utils/__pycache__/
+*/__pycache__/
+*.py[cod]
+.pytest_cache/
 
 # Interactive/Temporary
 get-pip.py
 .ipynb_checkpoints/
+
+

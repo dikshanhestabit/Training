@@ -33,12 +33,5 @@ API Documentation: [http://localhost:8000/docs](http://localhost:8000/docs)
 streamlit run monitoring/dashboard.py
 ```
 
-## Documentation
-
-- [Data Analysis Report](DATA-REPORT.md)
-- [Feature Engineering](FEATURE-ENGINEERING-DOC.md)
-- [Model Comparison & Results](MODEL-COMPARISON.md)
-- [Deployment Instructions](DEPLOYMENT-NOTES.md)
-- [Model Interpretation (SHAP)](MODEL-INTERPRETATION.md)
 
 

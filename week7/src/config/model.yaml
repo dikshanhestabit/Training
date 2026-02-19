@@ -1,5 +1,5 @@
 provider: local
-embedding_model: all-MiniLM-L6-v2
-chunk_size: 800
-chunk_overlap: 80
+embedding_model: BAAI/bge-m3
+chunk_size_tokens: 800
+chunk_overlap_tokens: 80
 top_k: 5

@@ -8,10 +8,10 @@ from sentence_transformers import SentenceTransformer
 # Loading environment variables from .env file
 load_dotenv()
 
-# Creating a class to handle local embeddings (Path A)
+# Embedding class for local and openai models
 class OpenAIEmbedder:
     def __init__(self, config_path: str = "src/config/model.yaml"):
-        # Loading configurations from yaml
+        # Loading model configurations
         with open(config_path, 'r') as f:
             self.config = yaml.safe_load(f)
             
@@ -31,7 +31,7 @@ class OpenAIEmbedder:
             print(f"Initializing Local Embedder: {self.model_name}")
             self.local_model = SentenceTransformer(self.model_name)
 
-    # Generating embeddings for multiple text chunks
+    # Embedding document batches
     def embed_documents(self, texts: List[str]) -> List[List[float]]:
         if self.provider == "openai":
             response = self.client.embeddings.create(
@@ -40,11 +40,11 @@ class OpenAIEmbedder:
             )
             return [data.embedding for data in response.data]
         else:
-            # Running local embedding on CPU
+            # Local encoding
             embeddings = self.local_model.encode(texts)
             return embeddings.tolist()
 
-    # Generating embedding for a single user question
+    # Embedding individual queries
     def embed_query(self, text: str) -> List[float]:
         if self.provider == "openai":
             response = self.client.embeddings.create(
@@ -53,6 +53,6 @@ class OpenAIEmbedder:
             )
             return response.data[0].embedding
         else:
-            # Running local query embedding
+            # Local query encoding
             embedding = self.local_model.encode([text])[0]
             return embedding.tolist()

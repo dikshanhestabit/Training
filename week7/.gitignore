@@ -5,3 +5,6 @@ __pycache__/
 *.pkl
 src/data/raw/*
 !src/data/raw/.gitkeep
+src/data/cleaned/
+src/data/chunks/
+.cache/

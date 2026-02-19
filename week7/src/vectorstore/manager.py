@@ -31,7 +31,7 @@ class VectorStoreManager:
             with open(self.index_path + ".pkl", "rb") as f:
                 self.metadata_store = pickle.load(f)
 
-    # Searching for the best matches
+    # Searching for matches
     def search(self, query_embedding: List[float], k: int = 5):
         query_np = np.array([query_embedding]).astype('float32')
         distances, indices = self.index.search(query_np, k)
@@ -40,8 +40,11 @@ class VectorStoreManager:
         for i in range(len(indices[0])):
             idx = indices[0][i]
             if idx != -1:
+                # Reconstructing the vector from index
+                vec = self.index.reconstruct(int(idx))
                 results.append({
                     "metadata": self.metadata_store[idx],
+                    "vector": vec.tolist(),
                     "distance": float(distances[0][i])
                 })
         return results

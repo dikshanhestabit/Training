@@ -7,4 +7,6 @@ src/data/raw/*
 !src/data/raw/.gitkeep
 src/data/cleaned/
 src/data/chunks/
+src/data/temp_images/
+src/logs/*.log
 .cache/

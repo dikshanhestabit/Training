@@ -3,3 +3,8 @@ sentence-transformers
 pypdf
 pyyaml
 python-dotenv
+transformers
+torch
+pytesseract
+pdf2image
+pillow

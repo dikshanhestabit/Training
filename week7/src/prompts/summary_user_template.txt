@@ -1,0 +1,6 @@
+Natural Language Query: {query}
+SQL Executed: {sql}
+Results Table:
+{df_str}
+
+Provide a human-readable summary of the results.

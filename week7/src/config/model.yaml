@@ -1,4 +1,5 @@
-provider: local
+provider: gemini
+model_name: gemini-2.5-flash
 embedding_model: BAAI/bge-m3
 chunk_size_tokens: 800
 chunk_overlap_tokens: 80

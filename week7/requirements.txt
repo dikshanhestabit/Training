@@ -8,3 +8,9 @@ torch
 pytesseract
 pdf2image
 pillow
+pandas
+openai
+requests
+anthropic
+google-generativeai
+sqlglot

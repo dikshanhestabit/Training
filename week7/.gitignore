@@ -1,12 +1,24 @@
 .env
 venv/
 __pycache__/
+
+# Vector store artifacts
 *.faiss
 *.pkl
-src/data/raw/*
-!src/data/raw/.gitkeep
+
+# Databases (Important: Don't push large binary DBs)
+*.db
+
+# Data artifacts
 src/data/cleaned/
 src/data/chunks/
 src/data/temp_images/
+
+# Ignore raw data EXCEPT the CSVs needed for SQL-QA
+src/data/raw/*
+!src/data/raw/*.csv
+!src/data/raw/.gitkeep
+
+# Logs and cache
 src/logs/*.log
 .cache/

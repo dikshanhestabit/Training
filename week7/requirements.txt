@@ -14,3 +14,6 @@ requests
 anthropic
 google-generativeai
 sqlglot
+fastapi
+uvicorn
+python-multipart

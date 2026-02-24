@@ -19,6 +19,8 @@ src/data/raw/*
 !src/data/raw/*.csv
 !src/data/raw/.gitkeep
 
-# Logs and cache
+# Logs, cache, and runtime history
 src/logs/*.log
+CHAT-LOGS.json
+src/memory/chat_history.json
 .cache/

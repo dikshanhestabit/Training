@@ -30,13 +30,13 @@ The following techniques were successfully implemented to prevent OOM (Out Of Me
 
 ## 3. Results & Deliverables Verification
 
-*   [x] **Trainable Parameters Only ~1-2%:**
+*    **Trainable Parameters Only ~1-2%:**
     *   **Percentage Trainable:** ~1.8% (Targeted all linear layers for improved technical reasoning).
-*   [x] **Loss Optimizing:**
+*    **Loss Optimizing:**
     *   **Start Loss:** 2.1622
     *   **Final Loss:** 0.1142
     *   **Avg Training Loss:** 0.1645
-*   [x] **Adapter Weights Saved:** Successfully generated `adapter_model.bin` and `adapter_config.json`.
+*    **Adapter Weights Saved:** Successfully generated `adapter_model.bin` and `adapter_config.json`.
 
 ## 4. Observations & Notes
 - **Hardware:** Google Colab T4 GPU.

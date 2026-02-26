@@ -1,0 +1,1 @@
+This directory will contain the generated LoRA adapter files (adapter_model.bin / adapter_config.json) after fine-tuning.

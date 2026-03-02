@@ -1,7 +1,15 @@
-# Day 1 Requirements: Dataset Prep & Cleaning
-transformers>=4.40.0
-numpy<2.0.0
+# Core ML Stack
 torch>=2.2.0
+transformers>=4.49.0
 sentencepiece
 protobuf
 tqdm
+numpy<2.0.0
+
+# Quantization & Fine-Tuning
+peft>=0.10.0
+bitsandbytes>=0.46.1
+accelerate>=0.28.0
+
+# GGUF & Inference
+llama-cpp-python

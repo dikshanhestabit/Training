@@ -1,4 +1,13 @@
+# Virtual Environment
 .venv/
-venv/
-**/__pycache__/
-*.pyc
+
+# Large Model Weights
+src/merged_model/model.safetensors
+src/quantized/model.gguf
+src/quantized/model-int4/model.safetensors
+src/adapters/adapter_model.safetensors
+
+# Local Cache & Notebook Junk
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store

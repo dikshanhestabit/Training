@@ -1,5 +1,4 @@
-# Quantization Report - Week 8 Day 3
-
+# Quantization Report 
 ## 1. Technical Background
 
 ### Static vs Dynamic Quantization

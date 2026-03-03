@@ -1,7 +1,7 @@
 # My Inference Benchmark Report 
 
 ## 1. Summary
-I spent today benchmarking different versions of the `TinyLlama-1.1B` model to understand how performance varies across hardware and optimization settings. I tested the Base model on a GPU, and then compared it against my Fine-tuned (QLoRA) and Quantized (GGUF) versions on both CPU and GPU.
+Benchmarking different versions of the `TinyLlama-1.1B` model to understand how performance varies across hardware and optimization settings. I tested the Base model on a GPU, and then compared it against my Fine-tuned (QLoRA) and Quantized (GGUF) versions on both CPU and GPU.
 
 ## 2. My Performance Results
 
@@ -41,8 +41,3 @@ I also looked into Speculative Decoding. It's a cool idea where a tiny "draft mo
 
 ### vLLM Engine
 I tried to run the vLLM engine, but I hit some compilation errors with the older Tesla T4 hardware. I decided to skip it for now and focus on the HuggingFace and GGUF results which are already quite optimized.
-
-## 6. My Final Recommendations
-1.  **For Speed:** I'll stick with the **HuggingFace GPU** setup with token streaming enabled. It feels the most "real-time."
-2.  **For Local Use:** I highly recommend using **GGUF quantization**. It's the only way to get decent speeds without a dedicated GPU.
-3.  **For Long Conversations:** I'll keep an eye on VRAM, but TinyLlama is small enough that I can handle 2048 tokens without any issues.

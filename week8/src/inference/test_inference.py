@@ -184,8 +184,8 @@ def main():
             })
 
     # Appending results to my CSV file for logging
-    os.makedirs("./benchmarks", exist_ok=True)
-    with open("./benchmarks/results.csv", "a", newline="") as f:
+    os.makedirs("src/benchmarks", exist_ok=True)
+    with open("src/benchmarks/results.csv", "a", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=["model_type", "device", "context_window", "tokens_generated", "duration", "tps", "vram_gb"])
         if f.tell() == 0:
             writer.writeheader()

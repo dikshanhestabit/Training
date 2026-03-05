@@ -2,7 +2,7 @@
 
 This project provides a deployable local LLM microservice built with FastAPI and `llama-cpp-python`. It is optimized for the quantized **TinyLlama-1.1B** model fine-tuned for polyglot coding instructions.
 
-## 🚀 Features
+## Features
 - **FastAPI Inference Server**: High-performance asynchronous API.
 - **Quantized Model Support**: Uses GGUF format for low memory footprint (~600MB).
 - **Infinite Chat Mode**: Supports multi-turn conversations via a `messages` history.
@@ -10,7 +10,7 @@ This project provides a deployable local LLM microservice built with FastAPI and
 - **Advanced Controls**: Full control over `temperature`, `top_p`, `top_k`, and `max_tokens`.
 - **Production Ready**: Includes request logging, unique IDs, and a `DOCKERFILE`.
 
-## 🛠️ Setup & Installation
+## Setup & Installation
 
 ### 1. Local Setup
 ```bash
@@ -31,7 +31,7 @@ docker build -t local-llm-api .
 docker run -p 8000:8000 local-llm-api
 ```
 
-## 📡 API Endpoints
+## API Endpoints
 
 ### `POST /generate`
 Basic text completion.
@@ -64,7 +64,7 @@ Multi-turn conversation (OpenAI-compatible style).
 }
 ```
 
-## 📝 Configuration
+## Configuration
 Configuration is managed in `src/deploy/config.py` and can be overridden via environment variables:
 - `MODEL_PATH`: Path to the `.gguf` model file.
 - `LOG_LEVEL`: Logging level (DEBUG, INFO, etc.).

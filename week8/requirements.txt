@@ -13,3 +13,8 @@ accelerate>=0.28.0
 
 # GGUF & Inference
 llama-cpp-python
+
+# Deployment & API
+fastapi
+uvicorn
+pydantic-settings

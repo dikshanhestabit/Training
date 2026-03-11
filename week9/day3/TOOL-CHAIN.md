@@ -1,8 +1,8 @@
-# Day 3: Tool-Calling Multi-Agent System 🛠️
+# Tool-Calling Multi-Agent System 
 
 This document outlines the architecture and execution flow for the tool-using agent system. It covers the delegation logic from the **Orchestrator** to specialized **Tool Agents**.
 
-## 🏗️ System Architecture
+## System Architecture
 
 The core of this system is the **Tool Orchestrator**, which interprets user queries and determines which agents (Code, DB, File) are required to complete the task.
 
@@ -22,7 +22,7 @@ graph TD
     E & G & I --> J[Aggregated Final Answer]
 ```
 
-## 🤖 Specialized Agents
+## Specialized Agents
 
 ### 1. Code Agent (`tools/code_executor.py`)
 - **Capabilities**: Sandbox execution of Python code, captures `stdout` and `stderr`.
@@ -36,7 +36,7 @@ graph TD
 - **Capabilities**: Read/Write `.txt` and `.csv`, and local string-based search engine.
 - **Usage**: Data ingestion for analysis and persistent storage.
 
-## 🔄 Orchestration Example: "Analyze `sales.csv`"
+## Orchestration Example: "Analyze `sales.csv`"
 
 When the user requests an analysis of a CSV file, the following **Tool Chain** is executed:
 
@@ -45,7 +45,7 @@ When the user requests an analysis of a CSV file, the following **Tool Chain** i
 3.  **Step 3 (Analysis)**: The code executor returns the result of the script to the orchestrator.
 4.  **Step 4 (Final Answer)**: The orchestrator combines the raw results into a human-readable format.
 
-## 🚀 Execution Instructions
+## Execution Instructions
 
 Each component is designed to be modular. You can test them individually or via the main orchestrator:
 
@@ -54,5 +54,4 @@ Each component is designed to be modular. You can test them individually or via 
 python3 tool_orchestrator.py
 ```
 
----
-*Created as part of the Week 9 Day 3 ML Tool-Calling Agents module.*
+

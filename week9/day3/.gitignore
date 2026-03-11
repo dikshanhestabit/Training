@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+
+# Local Databases
+*.db
+*.sqlite
+
+# Test Data
+sales.csv
+secret.txt
+secrets.txt
